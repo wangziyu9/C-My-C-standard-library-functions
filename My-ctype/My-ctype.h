@@ -11,6 +11,10 @@ int Myislower(int ch);
 int Myisprint(int ch);
 int Myispunct(int ch);
 int Myisspace(int ch);
+int Myisupper(int ch);
+int Myisdigit(int ch);
+int Mytolower(int ch);
+int Mytoupper(int ch);
 
 int MYisalpha(int ch)   //if is alphanumeric, return 1,or return 0
 {
@@ -91,3 +95,41 @@ int Myisspace(int ch)
     else
         return 0;
 } 
+
+int Myisupper(int ch)
+{
+    if (ch >= 'A' && ch <= 'Z')
+        return 1;
+    else
+        return 0;
+}
+
+int Myisxdigit(int ch)
+{
+    if ((ch >= '0' && ch <= '9') || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F'))
+        return 1;
+    else
+        return 0;
+}
+
+int Mytolower(int ch)
+{
+    if (ch >= 'A' && ch <= 'Z')
+    {
+        ch = ch + 'a' - 'A';
+        return ch;
+    }
+    else
+        return ch;
+}
+
+int Mytoupper(int ch)
+{
+    if (ch >= 'a' && ch <= 'z')
+    {
+        ch = ch + 'A' - 'a';
+        return ch;
+    }
+    else
+        return ch;
+}
