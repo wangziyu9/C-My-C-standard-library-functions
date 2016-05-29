@@ -3,10 +3,10 @@
 
 int MYisalnum(int ch);   //if is alphanumeric, return 1,or return 0
 int MYisalnum(int ch);   //if is alpha, return 1,or return 
-int Myisblank(int ch);
-int Myiscntrl(int ch);
-int Myisdigit(int ch);
-int Myisgraph(int ch);
+int Myisblank(int ch);   //' ' and tab
+int Myiscntrl(int ch);   //unprint
+int Myisdigit(int ch);   //
+int Myisgraph(int ch);   //' ' and unprint return 0, else return 1
 int Myislower(int ch);
 int Myisprint(int ch);
 int Myispunct(int ch);
