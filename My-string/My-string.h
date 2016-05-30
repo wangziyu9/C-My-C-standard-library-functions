@@ -4,6 +4,22 @@ int Yurstrhead(char * s1, char * s2);
 int Mystrlen(const char * s);
 int Mystrcmp(const char * s1, const char * s2);
 char * Mystrstr(const char * s1, const char * s2);
+void * Mymemchr(const void * s, int c, size_t n);
+
+void * Mymemchr(const void * s, int c, size_t n)
+{
+    char * str = (char*)s;
+    int len = Mystrlen(str);
+    for (int i = 0; i < len; i++)
+    {
+        if (i == n)
+            break;
+
+        if (*(str + i) == c)
+            return str + i;
+    }
+    return NULL;
+}
 
 int Yurstrhead(char * s1, char * s2)
 {
