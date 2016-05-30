@@ -5,6 +5,7 @@ int Mystrlen(const char * s);
 int Mystrcmp(const char * s1, const char * s2);
 char * Mystrstr(const char * s1, const char * s2);
 void * Mymemchr(const void * s, int c, size_t n);
+int Mymemcmp(const void *s1, const void *s2, size_t n);
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -92,4 +93,16 @@ char * Mystrstr(const char * s1, const char * s2)
     }
 
     return NULL;
+}
+
+int Mymemcmp(const void *s1, const void *s2, size_t n)
+{
+    char * str1 = (char *)s1;
+    char * str2 = (char *)s2;
+
+    str1[n] = '\0';
+    str2[n] = '\0';
+
+    return Mystrcmp(str1, str2);
+
 }
