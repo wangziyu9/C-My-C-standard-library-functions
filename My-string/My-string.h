@@ -7,6 +7,7 @@ char * Mystrstr(const char * s1, const char * s2);
 void * Mymemchr(const void * s, int c, size_t n);
 int Mymemcmp(const void *s1, const void *s2, size_t n);
 int Mystrcpy(char *  s1, char * s2);
+void * Mymemcpy(void * s1, const void * s2, size_t n);
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -117,4 +118,19 @@ int Mystrcpy(char * s1, char * s2)
     char *s = s1;
     while ((*s1++ = *s2++) != '\0');
     return s;
+}
+
+void * Mymemcpy(void * s1, const void * s2, size_t n)
+{
+    if (s1 == NULL || s2 == NULL)
+        return NULL;
+    if (s1 == s2)
+        return NULL;
+    char * str1 = s1;
+    char *str2 = s2;
+    for (int i = 0; i < n; i++)
+    {
+        str1[i] = str2[n];
+    }
+    return str1;
 }
