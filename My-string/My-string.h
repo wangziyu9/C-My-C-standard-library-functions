@@ -8,6 +8,8 @@ void * Mymemchr(const void * s, int c, size_t n);
 int Mymemcmp(const void *s1, const void *s2, size_t n);
 int Mystrcpy(char *  s1, char * s2);
 void * Mymemcpy(void * s1, const void * s2, size_t n);
+size_t Yurstrcpn(const char * s1, const char * s2);
+size_t Mystrcspn(const char * s1, const char * s2)
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -133,4 +135,64 @@ void * Mymemcpy(void * s1, const void * s2, size_t n)
         str1[i] = str2[n];
     }
     return str1;
+}
+
+size_t Yurstrcpn(const char * s1, const char * s2)
+{
+    size_t len1 = Mystrlen(s1);
+    size_t len2 = Mystrlen(s2);
+    size_t i = 0, j = 0, k = 0;
+    size_t max = 0, len = 0;
+    for(k = 0; k < len1; k++)
+    {
+        len = 0;
+        for (i = k; i < len1; i++)//len++
+        {
+            len++;
+            for (j = 0; j < len2; j++)
+            {
+
+                if (s1[i] == s2[j])
+                {
+                    len--;
+                    goto DoubleBreak;
+                }
+            }  
+
+        }
+        DoubleBreak:
+        //break to here
+        if (len > max)
+            max = len;
+    }
+    return max;
+}
+
+size_t Mystrcspn(const char * s1, const char * s2)
+{
+    size_t len1 = Mystrlen(s1);
+    size_t len2 = Mystrlen(s2);
+    size_t i = 0, j = 0, k = 0;
+    size_t max = 0, len = 0;
+
+        for (i = 0; i < len1; i++)//len++
+        {
+            len++;
+            for (j = 0; j < len2; j++)
+            {
+
+                if (s1[i] == s2[j])
+                {
+                    len--;
+                    goto DoubleBreak;
+                }
+            }
+
+        }
+        DoubleBreak:
+        //break to here
+        if (len > max)
+            max = len;
+
+    return max;
 }
