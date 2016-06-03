@@ -1,15 +1,17 @@
 #pragma once
 
-int Yurstrhead(char * s1, char * s2);
-int Mystrlen(const char * s);
-int Mystrcmp(const char * s1, const char * s2);
-char * Mystrstr(const char * s1, const char * s2);
 void * Mymemchr(const void * s, int c, size_t n);
-int Mymemcmp(const void *s1, const void *s2, size_t n);
+int Mystrlen(const char * s);
+int Yurstrhead(char * s1, char * s2);
+int Mystrcmp(const char * s1, const char * s2);
+int Mystrncmp(const char * s1, const char * s2, size_t n);
+char * Mystrstr(const char * s1, const char * s2);
 int Mystrcpy(char *  s1, char * s2);
 void * Mymemcpy(void * s1, const void * s2, size_t n);
+void Mymemmove(void * s1, const void * s2, size_t n);// what's it????
 size_t Yurstrcpn(const char * s1, const char * s2);
-size_t Mystrcspn(const char * s1, const char * s2)
+size_t Mystrcspn(const char * s1, const char * s2);
+int Mymemcmp(const void *s1, const void *s2, size_t n);
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -24,6 +26,16 @@ void * Mymemchr(const void * s, int c, size_t n)
             return str + i;
     }
     return NULL;
+}
+
+int Mystrlen(const char * s)
+{
+    int i = 0;
+    for (i = 0; s[i] != '\0'; i++)
+    {
+        //NULL
+    }
+    return i;
 }
 
 int Yurstrhead(char * s1, char * s2)
@@ -48,22 +60,13 @@ int Yurstrhead(char * s1, char * s2)
     return 1;
 }
 
-int Mystrlen(const char * s)
-{
-    int i = 0;
-    for (i = 0; s[i] != '\0'; i++)
-    {
-        //NULL
-    }
-    return i;
-}
 
 int Mystrcmp(const char * s1, const char * s2)
 {
     size_t len1 = Mystrlen(s1);
     size_t len2 = Mystrlen(s2);
 
-    for (int i = 0; i < len1; i++)
+    for (size_t i = 0; i < len1; i++)
     {
         if (s1[i] == s2[i])
             continue;
@@ -78,6 +81,18 @@ int Mystrcmp(const char * s1, const char * s2)
     else if (len1 > len2)
         return 1;
 
+    return 0;
+}
+
+int Mystrncmp(const char * s1, const char * s2, size_t n)
+{
+    size_t i = 0, j = 0;
+    size_t len = Mystrlen(s1);
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < len;);
+    }
     return 0;
 }
 
@@ -108,6 +123,7 @@ int Mymemcmp(const void *s1, const void *s2, size_t n)
     str2[n] = '\0';
 
     return Mystrcmp(str1, str2);
+    //????
 }
 
 int Mystrcpy(char * s1, char * s2)
@@ -132,8 +148,25 @@ void * Mymemcpy(void * s1, const void * s2, size_t n)
     char *str2 = s2;
     for (int i = 0; i < n; i++)
     {
-        str1[i] = str2[n];
+        str1[i] = str2[i];
     }
+    
+    return str1;
+}
+
+void Mymemmove(void * s1, const void * s2, size_t n)
+{
+    if (s1 == NULL || s2 == NULL)
+        return NULL;
+    if (s1 == s2)
+        return NULL;
+    char * str1 = s1;
+    char *str2 = s2;
+    for (int i = 0; i < n; i++)
+    {
+        str1[i] = str2[i];
+    }
+
     return str1;
 }
 
