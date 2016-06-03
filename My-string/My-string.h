@@ -12,6 +12,7 @@ void Mymemmove(void * s1, const void * s2, size_t n);// what's it????
 size_t Yurstrcpn(const char * s1, const char * s2);
 size_t Mystrcspn(const char * s1, const char * s2);
 int Mymemcmp(const void *s1, const void *s2, size_t n);
+void Mymemset(char * s, int v, size_t n);
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -228,4 +229,17 @@ size_t Mystrcspn(const char * s1, const char * s2)
             max = len;
 
     return max;
+}
+
+void Mymemset(char * s, int v, size_t n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        //if (s[i] != '\0')
+            s[i] = v;
+        //else
+            //break;
+    }
+    s[n] = '\0';
+    return;
 }
