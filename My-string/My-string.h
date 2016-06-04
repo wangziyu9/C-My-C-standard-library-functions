@@ -15,6 +15,7 @@ int Mymemcmp(const void *s1, const void *s2, size_t n);
 void Mymemset(char * s, int v, size_t n);
 char * Mystrcat(char * s1, char * s2)；
 char * Mystrncat(char * s1, char * s2,size_t n);
+char * Mystrncpy(char * s1, char * s2, size_t n);
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -282,6 +283,23 @@ char * Mystrncat(char * s1, char * s2,size_t n)
         //j++;
     }
     s1[len1 + n] = '\0';
+
+    return s1;
+}
+
+char * Mystrncpy(char * s1, char * s2, size_t n)
+{
+    size_t len1 = Mystrlen(s1);
+    size_t len2 = Mystrlen(s2);
+    size_t i = 0;// , j = 0;
+    size_t len = len1 + len2;
+    char * str;
+    //s1 = (char *)malloc((len) * sizeof(char));
+    for (i = 0; i < n; i++)
+    {
+        s1[i] = s2[i];
+    }
+    s1[n] = '\0';
 
     return s1;
 }
