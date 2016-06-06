@@ -16,6 +16,7 @@ void Mymemset(char * s, int v, size_t n);
 char * Mystrcat(char * s1, char * s2)；
 char * Mystrncat(char * s1, char * s2,size_t n);
 char * Mystrncpy(char * s1, char * s2, size_t n);
+void * Mystrchr(const void * s, int c, size_t n);
 
 void * Mymemchr(const void * s, int c, size_t n)
 {
@@ -302,4 +303,19 @@ char * Mystrncpy(char * s1, char * s2, size_t n)
     s1[n] = '\0';
 
     return s1;
+}
+
+void * Mystrchr(const void * s, int c, size_t n)    // NULL ptr ?????
+{
+    char * str = (char*)s;
+    int len = Mystrlen(str);
+    for (int i = 0; i < len; i++)
+    {
+        if (i == n)
+            break;
+
+        if (*(str + i) == c)
+            return str + i;
+    }
+    return NULL;
 }
